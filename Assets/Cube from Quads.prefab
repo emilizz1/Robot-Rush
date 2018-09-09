@@ -91,7 +91,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4721639039979724}
-  - component: {fileID: 114771865816175632}
+  - component: {fileID: 114925663502755986}
+  - component: {fileID: 114938282123835820}
   m_Layer: 0
   m_Name: Cube from Quads
   m_TagString: Untagged
@@ -224,9 +225,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1349118820932788}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children:
   - {fileID: 4113211040734060}
   - {fileID: 4310815099696798}
@@ -641,7 +642,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819341120070056}
-  m_Text: xx.xx
+  m_Text: 0.0
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -655,7 +656,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
---- !u!114 &114771865816175632
+--- !u!114 &114925663502755986
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -667,3 +668,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 10
+--- !u!114 &114938282123835820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1349118820932788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b52be5b8a8ad345a6d34598554446d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
