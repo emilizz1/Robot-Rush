@@ -9,6 +9,9 @@ public class Pathfinder : MonoBehaviour
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     Queue<Waypoint> queue = new Queue<Waypoint>();
     bool isRunning = true;
+    Waypoint searchCenter;
+    List<Waypoint> path = new List<Waypoint>(); 
+
     Vector2Int[] directions = {
         Vector2Int.up,
         Vector2Int.right,
@@ -16,28 +19,72 @@ public class Pathfinder : MonoBehaviour
         Vector2Int.left
     };
 
-    void Start()
+    public List<Waypoint> GetPath()
     {
         LoadBlocks();
         ColorStartAndEnd();
-        Pathfind();
-       // ExploreNeighbors();
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
     }
 
-    void LoadBlocks()
+    void CreatePath()
     {
-        var waypoints = FindObjectsOfType<Waypoint>();
-        foreach (Waypoint waypoint in waypoints)
+        path.Add(endWaypoint);
+        Waypoint previous = endWaypoint.exploredFrom;
+        while(previous != startWaypoint)
         {
-            bool isOverLapping = grid.ContainsKey(waypoint.GetGridPos());
-            if (isOverLapping)
+            path.Add(previous);
+            previous = previous.exploredFrom;
+        }
+        path.Add(startWaypoint);
+        path.Reverse();
+    }
+
+    void BreadthFirstSearch()
+    {
+        queue.Enqueue(startWaypoint);
+        while (queue.Count > 0 && isRunning)
+        {
+            searchCenter = queue.Dequeue();
+            HoldIfEndFound();
+            ExploreNeighbors();
+            searchCenter.isExplored = true;
+        }
+    }
+
+    void HoldIfEndFound()
+    {
+        if (searchCenter == endWaypoint)
+        {
+            isRunning = false;
+        }
+    }
+
+    void ExploreNeighbors()
+    {
+        if (!isRunning) { return; }
+        foreach (Vector2Int direction in directions)
+        {
+            Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
+            if (grid.ContainsKey(neighbourCoordinates))
             {
-                Debug.LogWarning("Skipping overlapping block: " + waypoint);
+                QueueNewNeighbours(neighbourCoordinates);
             }
-            else
-            {
-                grid.Add(waypoint.GetGridPos(), waypoint);
-            }
+        }
+    }
+
+    private void QueueNewNeighbours(Vector2Int neighbourCoordinates)
+    {
+        Waypoint neighbour = grid[neighbourCoordinates];
+        if (neighbour.isExplored || queue.Contains(neighbour))
+        {
+            //do nothing
+        }
+        else
+        {
+            queue.Enqueue(neighbour);
+            neighbour.exploredFrom = searchCenter;
         }
     }
 
@@ -46,38 +93,21 @@ public class Pathfinder : MonoBehaviour
         startWaypoint.SetTopColor(Color.green);
         endWaypoint.SetTopColor(Color.red);
     }
-
-    void ExploreNeighbors()
+    
+    void LoadBlocks()
     {
-        foreach (Vector2Int direction in directions)
+        var waypoints = FindObjectsOfType<Waypoint>();
+        foreach (Waypoint waypoint in waypoints)
         {
-            Vector2Int explorationCoordinates = startWaypoint.GetGridPos() + direction;
-            try
+            var gridPos = waypoint.GetGridPos();
+            if (grid.ContainsKey(gridPos))
             {
-                grid[explorationCoordinates].SetTopColor(Color.blue);
+                Debug.LogWarning("Skipping overlapping block: " + waypoint);
             }
-            catch
+            else
             {
-                //do nothing
+                grid.Add(gridPos, waypoint);
             }
-        }
-    }
-
-    void Pathfind()
-    {
-        queue.Enqueue(startWaypoint);
-        while(queue.Count > 0)
-        {
-            var searchCenter = queue.Dequeue();
-            HoldIfEndFound(searchCenter);
-        }
-    }
-
-    void HoldIfEndFound(Waypoint searchCenter)
-    {
-        if (searchCenter == endWaypoint)
-        {
-            isRunning = false;
         }
     }
 }
