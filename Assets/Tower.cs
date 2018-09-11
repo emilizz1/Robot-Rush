@@ -5,10 +5,39 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     [SerializeField] Transform objectToPan;
-    [SerializeField] Transform targtEnemy;
+    [SerializeField] Transform targetEnemy;
+    [SerializeField] float attackRange;
+    [SerializeField] ParticleSystem projectileParticle;
 
 	void Update ()
     {
-        objectToPan.LookAt(targtEnemy);
-	}
+        if (targetEnemy)
+        {
+            objectToPan.LookAt(targetEnemy.position);
+            FireAtEnemy();
+        }
+        else
+        {
+            Shoot(false);
+        }
+    }
+
+    void FireAtEnemy()
+    {
+        float distanceToEnemy = Vector3.Distance(transform.position, targetEnemy.transform.position);
+        if(distanceToEnemy <= attackRange)
+        {
+            Shoot(true);
+        }
+        else
+        {
+            Shoot(false);
+        }
+    }
+
+    void Shoot(bool isActive)
+    {
+        var emissionModule = projectileParticle.emission;
+        emissionModule.enabled = isActive;
+    }
 }
