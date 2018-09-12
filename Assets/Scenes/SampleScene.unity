@@ -1431,6 +1431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 454411116}
+  - component: {fileID: 454411117}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -1452,6 +1453,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &454411117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 454411115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0075d5267a99af144867cd5468f97024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 2
+  enemyPrefab: {fileID: 1311948890575228, guid: 0751e3a79d33ed5478485e9d1dd56386,
+    type: 2}
 --- !u!1001 &462255036
 Prefab:
   m_ObjectHideFlags: 0
@@ -2212,6 +2227,21 @@ Prefab:
       propertyPath: targtEnemy
       value: 
       objectReference: {fileID: 1985016985}
+    - target: {fileID: 114679255713825006, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+        type: 2}
+      propertyPath: targetEnemy
+      value: 
+      objectReference: {fileID: 1985016985}
+    - target: {fileID: 114679255713825006, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+        type: 2}
+      propertyPath: attackRange
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114679255713825006, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+        type: 2}
+      propertyPath: projectileParticle
+      value: 
+      objectReference: {fileID: 987963800}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c01ae4224e07af47a7fe5984a21e9c4, type: 2}
   m_IsPrefabAsset: 0
@@ -2677,6 +2707,21 @@ Prefab:
       propertyPath: targtEnemy
       value: 
       objectReference: {fileID: 1985016985}
+    - target: {fileID: 114679255713825006, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+        type: 2}
+      propertyPath: targetEnemy
+      value: 
+      objectReference: {fileID: 1985016985}
+    - target: {fileID: 114679255713825006, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+        type: 2}
+      propertyPath: attackRange
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114679255713825006, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+        type: 2}
+      propertyPath: projectileParticle
+      value: 
+      objectReference: {fileID: 1500159691}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c01ae4224e07af47a7fe5984a21e9c4, type: 2}
   m_IsPrefabAsset: 0
@@ -2754,6 +2799,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4721639039979724, guid: 1e43a9d58cc636f47898c86a23a928dc,
     type: 2}
   m_PrefabInternal: {fileID: 957935294}
+--- !u!198 &987963800 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198453902328391490, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 729458555}
 --- !u!1001 &988935720
 Prefab:
   m_ObjectHideFlags: 0
@@ -3001,6 +3051,21 @@ Prefab:
       propertyPath: targtEnemy
       value: 
       objectReference: {fileID: 1985016985}
+    - target: {fileID: 114679255713825006, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+        type: 2}
+      propertyPath: targetEnemy
+      value: 
+      objectReference: {fileID: 1985016985}
+    - target: {fileID: 114679255713825006, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+        type: 2}
+      propertyPath: attackRange
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114679255713825006, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+        type: 2}
+      propertyPath: projectileParticle
+      value: 
+      objectReference: {fileID: 1548549450}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c01ae4224e07af47a7fe5984a21e9c4, type: 2}
   m_IsPrefabAsset: 0
@@ -3974,6 +4039,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4135240793724244, guid: 700ff3467e6f35c4d9307b685e8746d1,
     type: 2}
   m_PrefabInternal: {fileID: 1497973832}
+--- !u!198 &1500159691 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198453902328391490, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 873310277}
 --- !u!1 &1501669840
 GameObject:
   m_ObjectHideFlags: 0
@@ -4137,6 +4207,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4721639039979724, guid: 1e43a9d58cc636f47898c86a23a928dc,
     type: 2}
   m_PrefabInternal: {fileID: 1518148872}
+--- !u!198 &1548549450 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198453902328391490, guid: 3c01ae4224e07af47a7fe5984a21e9c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1079200005}
 --- !u!1001 &1577992285
 Prefab:
   m_ObjectHideFlags: 0

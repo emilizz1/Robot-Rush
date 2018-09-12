@@ -1,16 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] Transform objectToPan;
-    [SerializeField] Transform targetEnemy;
+    [SerializeField] Transform objectToPan; 
     [SerializeField] float attackRange;
     [SerializeField] ParticleSystem projectileParticle;
 
-	void Update ()
+    Transform targetEnemy;
+
+    void Update ()
     {
+        SetTargetEnemy();
         if (targetEnemy)
         {
             objectToPan.LookAt(targetEnemy.position);
@@ -20,6 +23,28 @@ public class Tower : MonoBehaviour
         {
             Shoot(false);
         }
+    }
+
+    private void SetTargetEnemy()
+    {
+        var sceneEnemies = FindObjectsOfType<EnemyDamage>();
+        if (sceneEnemies.Length == 0) { return; }
+
+        Transform closestEnemy = sceneEnemies[0].transform;
+        foreach(EnemyDamage testEnemy in sceneEnemies)
+        {
+            
+        }
+        targetEnemy = closestEnemy;
+    }
+
+    Transform GetClosest(Transform transformA, Transform transformB)
+    {
+        if (Vector3.Distance(transform.position, transformA.position) < Vector3.Distance(transform.position, transformB.position))
+        {
+            return transformA;
+        }
+        return transformB;
     }
 
     void FireAtEnemy()
