@@ -33,7 +33,7 @@ public class Tower : MonoBehaviour
         Transform closestEnemy = sceneEnemies[0].transform;
         foreach(EnemyDamage testEnemy in sceneEnemies)
         {
-            
+            closestEnemy = GetClosest(testEnemy.transform, closestEnemy);
         }
         targetEnemy = closestEnemy;
     }
