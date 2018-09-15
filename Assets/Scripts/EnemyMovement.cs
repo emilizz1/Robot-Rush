@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float enemyMovementSpeed = 1f;
+    [SerializeField] ParticleSystem goalParticle;
 
     void Start()
     {
@@ -20,5 +21,13 @@ public class EnemyMovement : MonoBehaviour
             transform.position = waypoint.transform.position;
             yield return new WaitForSecondsRealtime(enemyMovementSpeed);
         }
+        SelfDestruct();
+    }
+
+    void SelfDestruct()
+    {
+        var vfx = Instantiate(goalParticle, transform.position, Quaternion.identity);
+        Destroy(vfx.gameObject, vfx.main.duration);
+        Destroy(gameObject);
     }
 }
