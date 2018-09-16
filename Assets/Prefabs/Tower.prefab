@@ -229,8 +229,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPan: {fileID: 4604699276677476}
-  attackRange: 20
+  attackRange: 22
   projectileParticle: {fileID: 198453902328391490}
+  baseWaypoint: {fileID: 0}
 --- !u!198 &198453902328391490
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1004,7 +1005,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4780,7 +4781,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: c1682d238903b064d9a956fbfab20d36, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
