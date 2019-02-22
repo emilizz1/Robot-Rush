@@ -5,10 +5,11 @@ using UnityEngine;
 public class TowerFactory : MonoBehaviour
 {
     [SerializeField] int towerLimit = 3;
-    [SerializeField] Tower towerPrefab;
+    [SerializeField] Tower[] towerPrefab;
     [SerializeField] Transform towersParent;
 
     Queue<Tower> towers = new Queue<Tower>();
+    int createdTowers = 0;
 
     public void AddTower(Waypoint baseWaypoint)
     {
@@ -24,10 +25,11 @@ public class TowerFactory : MonoBehaviour
 
     void InstantiateTower(Waypoint baseWaypoint)
     {
-        var newTower = Instantiate(towerPrefab, baseWaypoint.transform.position, Quaternion.identity, towersParent);
+        var newTower = Instantiate(towerPrefab[createdTowers], baseWaypoint.transform.position, Quaternion.identity, towersParent);
         baseWaypoint.isPlacable = false;
         newTower.baseWaypoint = baseWaypoint;
         towers.Enqueue(newTower);
+        createdTowers++;
     }
 
     void MoveExistingTower(Waypoint baseWaypoint)
