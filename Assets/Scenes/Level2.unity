@@ -843,6 +843,11 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 757537473}
+    - target: {fileID: 114887212535570998, guid: e753d7ab0c5b32f459704bb0bb9699d1,
+        type: 3}
+      propertyPath: health
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 65131216551085432, guid: e753d7ab0c5b32f459704bb0bb9699d1,
         type: 3}
       propertyPath: m_IsTrigger
@@ -904,7 +909,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1289942997295908, guid: 04f81ff9814844ccfa08226f8d46a3f4,
     type: 3}
   spawnEnemySFX: {fileID: 8300000, guid: fbf0d3adfc02ac546bdd3b392b06c095, type: 3}
-  enemiesToSpawn: 10
+  enemiesToSpawn: 20
 --- !u!82 &454411118
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2029,7 +2034,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1035799956}
   - {fileID: 1454935802}
   - {fileID: 1473983361}
   - {fileID: 1227623087}
@@ -2042,9 +2046,10 @@ Transform:
   - {fileID: 505841395}
   - {fileID: 1317867142}
   - {fileID: 1366073020}
-  - {fileID: 1815632013}
+  - {fileID: 1035799956}
   - {fileID: 1282516572}
   - {fileID: 81207108}
+  - {fileID: 1815632013}
   - {fileID: 218076743}
   - {fileID: 2047982056}
   - {fileID: 1001702879}
@@ -2468,14 +2473,13 @@ Transform:
   m_Children:
   - {fileID: 1965899524}
   - {fileID: 402849023}
-  - {fileID: 1407408710}
-  - {fileID: 739998666}
   - {fileID: 1317059401}
   - {fileID: 278850279}
   - {fileID: 2131836875}
   - {fileID: 320571553}
   - {fileID: 1580549249}
   - {fileID: 1897630676}
+  - {fileID: 1407408710}
   - {fileID: 817687439}
   - {fileID: 1410913842}
   - {fileID: 2128083813}
@@ -2497,6 +2501,7 @@ Transform:
   - {fileID: 1870856614}
   - {fileID: 217506091}
   - {fileID: 645817175}
+  - {fileID: 739998666}
   - {fileID: 714633594}
   - {fileID: 1762005276}
   - {fileID: 1387821517}
@@ -4593,6 +4598,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1970815034}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2038028296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2038028298}
+  - component: {fileID: 2038028297}
+  m_Layer: 0
+  m_Name: LevelLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2038028297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038028296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf917062e3f80f42a1bf025d10931d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelIndex: 3
+--- !u!4 &2038028298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038028296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2047982055
 PrefabInstance:
   m_ObjectHideFlags: 0

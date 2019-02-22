@@ -26,6 +26,9 @@ public class EnemySpawner : MonoBehaviour
             enemySpawned++;
             audioSource.PlayOneShot(spawnEnemySFX);
             yield return new WaitForSecondsRealtime(spawnTime);
+            print("Spawn cycle");
         }
+        print("Loop finished");
+        StartCoroutine( FindObjectOfType<LevelLoader>().LevelFinished());
     }
 }

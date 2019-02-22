@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -23,5 +24,9 @@ public class PlayerHealth : MonoBehaviour
         audioSource.PlayOneShot(enemyReachingBaseSFX);
         health -= healthDecrease;
         healthText.text = health.ToString();
+        if(health == 0)
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 }
