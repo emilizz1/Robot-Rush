@@ -14,7 +14,6 @@ public class LevelLoader : MonoBehaviour
 
     public IEnumerator LevelFinished()
     {
-        print("Level finished");
         while(FindObjectsOfType<EnemyMovement>().Length > 0)
         {
             yield return new WaitForSeconds(0.5f);
